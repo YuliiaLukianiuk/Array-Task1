@@ -1,16 +1,12 @@
 'use strict';
 
 // 1. Напишите функцию, которая берет массив объектов и возвращает массив значений определенного поля:
-// const chars = [
-//   { 'name': 'tony', 'age': 20 },
-//   { 'name': 'feel', 'age': 30 }
-// ];
+// const {} = require('./task1.js');
 
-//  function pluck(arr, prop) {
-//   return arr.map(el => el[prop]);
-// }
-
-// console.log(pluck(chars, 'name')); // ['tony', 'feel']
+// console.log(([
+//     { 'name': 'tony', 'age': 20 },
+//     { 'name': 'feel', 'age': 30 }
+//   ].pluck ("name")));
 
 
 // 2. Напишите функцию неглубокого копирования массива, учитывая, что исходный массив может быть произвольной длины, 
@@ -39,40 +35,27 @@
 // 3. Напишите функцию, которая принимает на входе массив и число, обозначающее размер группы, на которые нужно 
 // разделить исходный массив
 
-// const arr1 = splitArray(['a', 'b', 'c', 'd', 'e', 'f'], 2);
-
-// function splitArray(arr, num) {
-//   var array = [];
-
-//   while (arr.length){
-//     array.push(arr.splice(0, num))
-//   }
-//   return array;
-//   }
+console.log(['a', 'b', 'c', 'd', 'e', 'f'].splitArray(2));
 
 // console.log(arr1); // [['a', 'b'], ['c', 'd'], ['e', 'f']]
+
+
 
 // 4. Напишите функцию, которая удалит из массива все "отрицательные" 
 // типы данных (false, null, 0, "", undefined, NaN)
 
 // Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
 
-// const arr1 = clearArray([1, 0, 2, false, '', 3]);
+console.log([1, 0, 2, false, '', 3].clearArray());
 
-// function clearArray(arr){
-//   return arr.filter((val) => val)
-// }
 
 // console.log(arr1); // [1, 2, 3]
 
-// 5. Напишите функцию, которая конкатенирует исходный массив с другими массивами или примитивными значениями
+// 5---. Напишите функцию, которая конкатенирует исходный массив с другими массивами или примитивными значениями
 
-// const arr1 = [1];
-// const arr2 = concatArray(arr1, 2, [3], [[4]]);
 
-//  function concatArray( ...arr) {
-//   return arr.reduce((array, item) => array.concat(item), [])
-//  }
+const arr1 = [1];
+console.log([1].concatArray(2, [3], [[4]]));
 
 // console.log(arr2); // [1, 2, 3, [4]] 
 // console.log(arr1); // [1]
@@ -86,13 +69,10 @@
 //   return arr
 // }
 
-// console.log(rm([1, 2, 3])); // [2, 3]
- 
-// console.log(rm([1, 2, 3], 2)); // [3]
- 
-// console.log(rm([1, 2, 3], 5)); // []
- 
-// console.log(rm([1, 2, 3], 0)); // [1, 2, 3]
+console.log([1, 2, 3].rm()); // [2, 3]
+console.log([1, 2, 3].rm(2)); // [3]
+console.log([1, 2, 3].rm(5)); // []
+console.log([1, 2, 3].rm(0)); // [1, 2, 3]
 
 // 7. Аналогично заданию 6, только удаление с конца массива
 
@@ -113,24 +93,12 @@
 // 8. Написать функцию, которая принимает массив, символ для замены, с какой ячейки начинать заменять
 //  и на какой остановиться. Если номера ячеек не заданы, то по умолчанию это начало и конец всего массива
 
-// const arr1 = [1, 2, 3];
-
-//  function replaceIn(arr, n, start=0, end = arr.length){
-//      for (let i = start; i < end; i++) {
-//         arr[i] = n; 
-//     }
-//     return arr
-//    }
-   
-// replaceIn(arr1, 'a');
-// console.log(arr1); // ['a', 'a', 'a']
+const test = [1, 2, 3];
+console.log(test.replaceIn('a'));
+console.log(test.replaceIn('2')); // [2, 2, 2]
  
-// replaceIn(arr1, 2);
-// console.log(arr1); // [2, 2, 2]
- 
-// const arr2 = [4, 6, 8, 10];
-// replaceIn(arr2, '*', 1, 3);
-// console.log(arr2); // [4, '*', '*', 10]
+const test2 = [4, 6, 8, 10];
+console.log(test2.replaceIn('*', 1, 3)); // [4, '*', '*', 10]
 
 // 9. Напишите функцию, которая вернет массив со всеми элементами исходного массива, кроме последней ячейки
 
@@ -145,43 +113,20 @@
 
 // 10. Напишите функцию, которая вернет массив с всеми значениями, которые повторяются в исходном массиве
 
-// const arr1 = [1,2,3,4,2,5,6,1,3];
-// const arr2 = uni(arr1);
 
-// function uni(arr) {
-//   const saw = [];
+const test3 = [1,2,3,4,2,5,6,1,3];
+const test4 = test3.uni();
+console.log(test4); // [1,2,3]
 
-//   return [
-//     ...new Set(
-//       arr.reduce((acc, item) => {
-//         saw.some((elem) => elem === item) ? acc.push(item) : saw.push(item);
-//         return acc;
-//       }, [])
-//     ),
-//   ];
-// }
-// console.log(arr2); // [1,2,3]
 
-// const arr1 = [1,2,3,4,2,5,6,1,3];
-// const arr2 = uni(arr1);
 
-//  function uni(arr) {
-//     return  arr.filter((item, index) => arr.indexOf(item) !==index).sort();
-//  }
-// console.log(arr2); // [1,2,3]
 
 // 11. Напишите функцию, которая вернет элемент из массива по указанному индексу. Но если индекс отрицательный,
 //  то считаем с конца массива
 
-// const arr = ['a', 'b', 'c', 'd'];
-
-// function nfa(arr, index){
-//   let res = ()=> index >= 0 ? arr[index]: arr.slice(index)[0]
-//     return res()
-// }
-
-// console.log(nfa(arr, 1)); // 'b'
-// console.log(nfa(arr, -2)); // 'c';
+const test11 = ['a', 'b', 'c', 'd'];
+console.log((test11.nfa(1))); // 'b'
+console.log((test11.nfa(-2))); // 'b'
 
 // 12. Напишите решение в одну строчку, которое считает сумму квадратных корней для всех чётных чисел внутри массива
 
@@ -192,24 +137,13 @@
 // Логика группировки: первая группа состоит из всех первых элементов исходных массивов, 
 // вторая группа - из вторых элементов и т.д.
 
-// function group(arr1, arr2, arr3){
-//   let test =[];
-//   for (let i = 0; i < arr1.length; i++) {
-//     test.push([arr1[i], arr2[i], arr3[i]]);
-// }
-//   return test
-// }
-// console.log(group(['a', 'b'], [1, 2], [true, false]));// [['a', 1, true], ['b', 2, false]]
+console.log(['a', 'b'].group([1, 2], [true, false]));// [['a', 1, true], ['b', 2, false]]
 
 // 14. Напишите функцию которая преобразует массив в строку через указанный разделитель
 
-// const arr = ['a','b','c'];
+const arr = ['a','b','c'];
+console.log((arr.implode('-'))); // 'a-b-c'
 
-// function implode(arr,n) {
-//   return arr.join(n);
-// }
-
-// console.log(implode(arr, '-')); // 'a-b-c'
 // 15. Напишите функцию которая преобразует массив из чисел в строку через указанный разделитель, 
 // оставив только четные числа или не четные цифры, в зависимости от третьего аргумента (true - четные, false - нечетные)
 
@@ -233,23 +167,15 @@
 // console.log(findYear(2000,2018)); // [2000,2004,2008,2012,2016]
 // 17. Напишите функцию, которая перемешает массив в случайном порядке
 
-// function rnd(arr) {
-//   return arr.sort(() => (Math.random() - 0.5))
-// }
-// console.log(rnd([1,2,3,4,5,6])); // [6,1,5,4,3,2]
+console.log(([1,2,3,4,5,6].rnd())); // [6,1,5,4,3,2]
 
 // 18. Напишите функцию, которая вернет разницу двух массивов (т.е. элементы, которых нет в исходных массивах)
 
-// const arr1 = [1, 2, 'a'];
-// const arr2 = [1, 2, 3, 4, 'b'];  
+const test18 = [1, 2, 'a'];
+const test19 = [1, 2, 3, 4, 'b'];  
 
-// function diff(arr1, arr2){
-//   return arr1
-//   .filter(x => arr2.indexOf(x) == -1)
-//   .concat(arr2.filter(x => arr1.indexOf(x) == -1));
-// }
 
-// console.log(diff(arr1,arr2)) // [a,3,4,b]
+console.log(test18.diff(test19)) // [a,3,4,b]
 // 19. Напишите функцию, которая сортирует массив по убыванию
 
 // const arr = [3, 8, 7, 6, 5, -4, 3, 2, 1];
@@ -261,7 +187,7 @@
 // console.log(sort(arr)); // [-4,1,2,3,3,5,6,7,8]
 // 20. Напишите функцию, которая вернет самый частый элемент массива
 
-// const arr = [7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 9, 7];
+const test20 = [7, 'z', 'z', 'z', 3, 7, 'z', 7, 'z', 3, 5, 9, 7];
 
 // function fn(array) {
 //   return array.sort((a,b) =>
@@ -270,4 +196,4 @@
 //   ).pop();
 // }
 
-// console.log(fn(arr)); // 'z'
+console.log(test20.fn()); // 'z'
